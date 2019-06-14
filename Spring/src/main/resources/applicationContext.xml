@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--<bean id="UserDao" class="com.itheima.dao.impl.UserDaoImpl"></bean>-->
+    <!--<bean id="userService" class="com.itheima.dao.impl.UserServiceDaoImpl">
+        <property name="userDao" ref="UserDao"></property>
+    </bean>-->
+    <bean id="userService" class="com.itheima.dao.impl.UserServiceDaoImpl">
+        <constructor-arg name="userDao" ref="UserDao"></constructor-arg>
+    </bean>
+
+    <bean id="UserDao" class="com.itheima.dao.impl.UserDaoImpl">
+        <property name="username" value="zhangsan"></property>
+        <property name="age" value="18"></property>
+        <property name="list">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="u1" value-ref="user1"></entry>
+                <entry key="u2" value-ref="user2"></entry>
+                <entry key="u3" value-ref="user3"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="p1">后面的是傻逼</prop>
+                <prop key="p2">哔哔个不停</prop>
+                <prop key="p3">吵死人了</prop>
+            </props>
+        </property>
+    </bean>
+
+<bean id="user1" class="com.itheima.domain.User">
+    <property name="name" value="温州阿飞"></property>
+    <property name="address" value="温州"></property>
+</bean>
+
+    <bean id="user2" class="com.itheima.domain.User">
+        <property name="name" value="太仓明少"></property>
+        <property name="address" value="太仓"></property>
+    </bean>
+
+    <bean id="user3" class="com.itheima.domain.User">
+        <property name="name" value="三少爷阿峰"></property>
+        <property name="address" value="吴江"></property>
+    </bean>
+</beans>
+
+
